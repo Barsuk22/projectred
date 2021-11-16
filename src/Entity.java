@@ -1,0 +1,25 @@
+abstract public class Entity {
+    private String name;
+    private int hp =  100;
+    private boolean destroyed;
+
+    Entity(String name) {
+        this.name = name;
+    }
+
+    protected boolean damage(int dhp) {
+        hp -= dhp;
+        if(hp <= 0) {
+            destroyed = true;
+            System.out.println(name + "умер! ");
+
+            return true;
+        }
+        return false;
+    }
+
+
+    public boolean isDestroyed() {
+        return destroyed;
+    }
+}
